@@ -13,9 +13,6 @@
 <style>
 :root{
   --bg:#f4eee3;
-  --bg-deep:#e7dcc8;
-  --panel:#fbf7ef;
-  --panel-2:#f6efe2;
   --stroke:#d4c1a2;
   --stroke-soft:#e4d6bf;
   --text:#33281e;
@@ -25,23 +22,26 @@
   --wine:#6e4f3d;
   --shadow:0 14px 34px rgba(84, 59, 25, 0.10);
 
-  --beginner-bg:#f6efe1;
+  --beginner-bg:#f7f0de;
   --beginner-border:#dcc28b;
   --beginner-dot:#caa24d;
-  --beginner-badge-bg:#f1e2be;
+  --beginner-badge-bg:#f2e3bc;
   --beginner-badge-text:#7f5b1d;
+  --beginner-line:#d0a548;
 
-  --intermediate-bg:#efe7dd;
-  --intermediate-border:#cda97d;
+  --intermediate-bg:#efe5d7;
+  --intermediate-border:#c89c67;
   --intermediate-dot:#a8753a;
-  --intermediate-badge-bg:#e6d2bf;
+  --intermediate-badge-bg:#e7cfb1;
   --intermediate-badge-text:#6c4522;
+  --intermediate-line:#ad7640;
 
-  --advanced-bg:#e8ddd8;
-  --advanced-border:#a88478;
+  --advanced-bg:#e7d8d4;
+  --advanced-border:#ab7f75;
   --advanced-dot:#7a564d;
-  --advanced-badge-bg:#d9c3bc;
+  --advanced-badge-bg:#dac0b9;
   --advanced-badge-text:#5a392f;
+  --advanced-line:#7f5a51;
 }
 
 *{
@@ -195,6 +195,12 @@ body{
   box-shadow:0 6px 18px rgba(110,79,61,.05);
 }
 
+.notice::before{
+  content:"🏅";
+  margin-right:7px;
+  font-size:13px;
+}
+
 /* SECTION */
 .section{
   margin-top:52px;
@@ -254,6 +260,18 @@ body{
   background:linear-gradient(90deg, rgba(185,146,71,.42), rgba(185,146,71,0));
 }
 
+.section.beginner .section-rule{
+  background:linear-gradient(90deg, rgba(208,165,72,.55), rgba(208,165,72,0));
+}
+
+.section.intermediate .section-rule{
+  background:linear-gradient(90deg, rgba(173,118,64,.55), rgba(173,118,64,0));
+}
+
+.section.advanced .section-rule{
+  background:linear-gradient(90deg, rgba(127,90,81,.55), rgba(127,90,81,0));
+}
+
 /* GRID */
 .grid{
   display:flex;
@@ -269,8 +287,6 @@ body{
   align-items:center;
   padding:12px;
   border-radius:22px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.48));
   border:1px solid var(--stroke-soft);
   box-shadow:0 10px 24px rgba(110,79,61,.06);
   cursor:pointer;
@@ -279,12 +295,11 @@ body{
 
 .card:hover{
   transform:translateY(-2px);
-  box-shadow:0 14px 28px rgba(110,79,61,.10);
 }
 
 .card.beginner{
   background:
-    linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.54)),
+    linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.55)),
     var(--beginner-bg);
   border-color:var(--beginner-border);
 }
@@ -296,7 +311,7 @@ body{
 
 .card.intermediate{
   background:
-    linear-gradient(180deg, rgba(255,255,255,.64), rgba(255,255,255,.50)),
+    linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.52)),
     var(--intermediate-bg);
   border-color:var(--intermediate-border);
 }
@@ -308,7 +323,7 @@ body{
 
 .card.advanced{
   background:
-    linear-gradient(180deg, rgba(255,255,255,.60), rgba(255,255,255,.48)),
+    linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.48)),
     var(--advanced-bg);
   border-color:var(--advanced-border);
 }
@@ -331,23 +346,6 @@ body{
   display:block;
   background:#eadfca;
   border:1px solid rgba(140,106,47,.14);
-}
-
-.cover-placeholder{
-  width:76px;
-  height:108px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:8px;
-  background:
-    linear-gradient(180deg, #efe4d0, #e6d6bb);
-  border:1px dashed rgba(140,106,47,.22);
-  color:#93795a;
-  font-size:11px;
-  line-height:1.55;
 }
 
 .level-dot{
@@ -382,6 +380,17 @@ body{
 .card.beginner .eyebrow{ color:#9b7729; }
 .card.intermediate .eyebrow{ color:#8a5a2f; }
 .card.advanced .eyebrow{ color:#6b4a42; }
+
+.winner{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.01em;
+  margin-top:-1px;
+}
+
+.card.beginner .winner{ color:#8f6b22; }
+.card.intermediate .winner{ color:#83512a; }
+.card.advanced .winner{ color:#66443c; }
 
 .title{
   font-family:'Noto Serif KR', serif;
@@ -467,8 +476,7 @@ body{
     align-items:flex-start;
   }
 
-  .cover,
-  .cover-placeholder{
+  .cover{
     width:72px;
     height:102px;
   }
@@ -532,27 +540,27 @@ function goLibrary(title){
 
   <section class="hero">
     <div class="hero-top">
-      <div class="hero-tag">우면도서관 (바) 청소년실</div>
+      <div class="hero-tag">우면도서관 ㅣ 청소년실</div>
       <img class="hero-medal" src="newbery-medal.jpg" alt="Newbery Medal">
     </div>
 
     <div class="hero-head">
       <h1 class="hero-title">뉴베리 수상작으로 만나는 영어 원서 읽기</h1>
-      <div class="hero-sub">수준에 맞게, 깊이 있게 읽는 첫 경험</div>
+      <div class="hero-sub">수준에 맞게, 깊이 있게 넓혀가는 영어 원서 읽기</div>
       <div class="hero-divider" aria-hidden="true"></div>
 
       <div class="description">
         <p>
           <span class="key">뉴베리상</span>은 미국 아동·청소년 문학에서 가장 권위 있는 상으로,
-          작품성과 완성도를 인정받은 우수한 작품에 수여됩니다.
+          작품성과 완성도를 인정받은 우수한 작품들이 선정됩니다.
         </p>
         <p>
-          이번 큐레이션은 수상작을 <span class="key">난이도별로 구성</span>해,
-          자신의 수준에 맞는 영어 원서를 선택하고 단계적으로 읽기에 도전할 수 있도록 마련했습니다.
+          뉴베리 수상작을 <span class="key">난이도별로 구분</span>하여
+          자신의 수준에 맞는 영어 원서를 선택할 수 있도록 구성했습니다.
         </p>
         <p>
-          익숙한 이야기부터 조금 더 깊이 있는 작품까지,
-          각자의 속도로 영어 원서 읽기의 경험을 넓혀보시기 바랍니다.
+          각자의 속도에 맞춰 읽으며
+          영어 원서 읽기의 경험을 확장해보시기 바랍니다.
         </p>
       </div>
     </div>
@@ -563,7 +571,7 @@ function goLibrary(title){
   </div>
 
   <!-- Beginner -->
-  <section class="section">
+  <section class="section beginner">
     <div class="section-head">
       <div class="section-badge beginner">Beginner</div>
       <h2 class="section-title">가볍게 시작하는 첫 원서 읽기</h2>
@@ -573,13 +581,13 @@ function goLibrary(title){
     <div class="grid">
       <div class="card beginner" onclick="goLibrary('Last Stop on Market Street')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780141374185.jpg" alt="Last Stop on Market Street 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780141374185.jpg" alt="Last Stop on Market Street 표지">
           <span class="level-dot beginner" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Beginner</div>
-          <div class="title">Last Stop on Market Street (2016)</div>
+          <div class="winner">🏅 2016 Winner</div>
+          <div class="title">Last Stop on Market Street</div>
           <div class="meta">Matt de la Peña</div>
           <div class="call">F 843 P397l</div>
         </div>
@@ -587,13 +595,13 @@ function goLibrary(title){
 
       <div class="card beginner" onclick="goLibrary('The Eyes and the Impossible')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781839136030.jpg" alt="The Eyes and the Impossible 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781839136030.jpg" alt="The Eyes and the Impossible 표지">
           <span class="level-dot beginner" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Beginner</div>
-          <div class="title">The Eyes and the Impossible (2024)</div>
+          <div class="winner">🏅 2024 Winner</div>
+          <div class="title">The Eyes and the Impossible</div>
           <div class="meta">Dave Eggers</div>
           <div class="call">F 843 E29e</div>
         </div>
@@ -602,22 +610,23 @@ function goLibrary(title){
   </section>
 
   <!-- Intermediate -->
-  <section class="section">
+  <section class="section intermediate">
     <div class="section-head">
       <div class="section-badge intermediate">Intermediate</div>
       <h2 class="section-title">익숙함을 넘어서, 이야기의 깊이로</h2>
       <div class="section-rule"></div>
     </div>
 
+    <div class="grid">
       <div class="card intermediate" onclick="goLibrary('When You Trap a Tiger')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781524715731.jpg" alt="When You Trap a Tiger 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781524715731.jpg" alt="When You Trap a Tiger 표지">
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Intermediate</div>
-          <div class="title">When You Trap a Tiger (2021)</div>
+          <div class="winner">🏅 2021 Winner</div>
+          <div class="title">When You Trap a Tiger</div>
           <div class="meta">Tae Keller</div>
           <div class="call">F 843 K29wh</div>
         </div>
@@ -625,13 +634,13 @@ function goLibrary(title){
 
       <div class="card intermediate" onclick="goLibrary('Merci Suarez Changes Gears')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781536212587.jpg" alt="Merci Suarez Changes Gears 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781536212587.jpg" alt="Merci Suarez Changes Gears 표지">
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Intermediate</div>
-          <div class="title">Merci Suarez Changes Gears (2019)</div>
+          <div class="winner">🏅 2019 Winner</div>
+          <div class="title">Merci Suarez Changes Gears</div>
           <div class="meta">Meg Medina</div>
           <div class="call">F 843 M491m</div>
         </div>
@@ -639,13 +648,13 @@ function goLibrary(title){
 
       <div class="card intermediate" onclick="goLibrary('Hello, Universe')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780062414168.jpg" alt="Hello, Universe 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780062414168.jpg" alt="Hello, Universe 표지">
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Intermediate</div>
-          <div class="title">Hello, Universe (2018)</div>
+          <div class="winner">🏅 2018 Winner</div>
+          <div class="title">Hello, Universe</div>
           <div class="meta">Erin Entrada Kelly</div>
           <div class="call">F 843 K29h</div>
         </div>
@@ -653,13 +662,13 @@ function goLibrary(title){
 
       <div class="card intermediate" onclick="goLibrary('The Girl Who Drank the Moon')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781616207465.jpg" alt="The Girl Who Drank the Moon 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781616207465.jpg" alt="The Girl Who Drank the Moon 표지">
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Intermediate</div>
-          <div class="title">The Girl Who Drank the Moon (2017)</div>
+          <div class="winner">🏅 2017 Winner</div>
+          <div class="title">The Girl Who Drank the Moon</div>
           <div class="meta">Kelly Barnhill</div>
           <div class="call">F 843 B262g</div>
         </div>
@@ -667,13 +676,13 @@ function goLibrary(title){
 
       <div class="card intermediate" onclick="goLibrary('The Crossover')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780544935204.jpg" alt="The Crossover 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780544935204.jpg" alt="The Crossover 표지">
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Intermediate</div>
-          <div class="title">The Crossover (2015)</div>
+          <div class="winner">🏅 2015 Winner</div>
+          <div class="title">The Crossover</div>
           <div class="meta">Kwame Alexander</div>
           <div class="call">F 843 A376t</div>
         </div>
@@ -681,13 +690,13 @@ function goLibrary(title){
 
       <div class="card intermediate" onclick="goLibrary('Flora & Ulysses')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780763687649.jpg" alt="Flora & Ulysses 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780763687649.jpg" alt="Flora & Ulysses 표지">
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Intermediate</div>
-          <div class="title">Flora &amp; Ulysses : The Illuminated Adventures (2014)</div>
+          <div class="winner">🏅 2014 Winner</div>
+          <div class="title">Flora &amp; Ulysses : The Illuminated Adventures</div>
           <div class="meta">Kate DiCamillo</div>
           <div class="call">F 843 D545f</div>
         </div>
@@ -696,7 +705,7 @@ function goLibrary(title){
   </section>
 
   <!-- Advanced -->
-  <section class="section">
+  <section class="section advanced">
     <div class="section-head">
       <div class="section-badge advanced">Advanced</div>
       <h2 class="section-title">조금 더 깊고 밀도 있게 읽기</h2>
@@ -706,13 +715,13 @@ function goLibrary(title){
     <div class="grid">
       <div class="card advanced" onclick="goLibrary('Freewater')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="Freewater 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780316056670.jpg" alt="Freewater 표지">
           <span class="level-dot advanced" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Advanced</div>
-          <div class="title">Freewater (2023)</div>
+          <div class="winner">🏅 2023 Winner</div>
+          <div class="title">Freewater</div>
           <div class="meta">Amina Luqman-Dawson</div>
           <div class="call">F 843 L966f</div>
         </div>
@@ -720,13 +729,13 @@ function goLibrary(title){
 
       <div class="card advanced" onclick="goLibrary('The Last Cuentista')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780316056670.jpg" alt="The Last Cuentista 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780316056670.jpg" alt="The Last Cuentista 표지">
           <span class="level-dot advanced" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Advanced</div>
-          <div class="title">The Last Cuentista (2022)</div>
+          <div class="winner">🏅 2022 Winner</div>
+          <div class="title">The Last Cuentista</div>
           <div class="meta">Donna Barba Higuera</div>
           <div class="call">F 843 H638l</div>
         </div>
@@ -734,13 +743,13 @@ function goLibrary(title){
 
       <div class="card advanced" onclick="goLibrary('The First State of Being')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780063467910.jpg" alt="The First State of Being 표지"> -->
-          <div class="cover-placeholder">cover image</div>
+          <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780063467910.jpg" alt="The First State of Being 표지">
           <span class="level-dot advanced" aria-hidden="true"></span>
         </div>
         <div class="info">
           <div class="eyebrow">Advanced</div>
-          <div class="title">The First State of Being : Tomorrow Begins Today (2025)</div>
+          <div class="winner">🏅 2025 Winner</div>
+          <div class="title">The First State of Being : Tomorrow Begins Today</div>
           <div class="meta">Erin Entrada Kelly</div>
           <div class="call">F 843 K29f</div>
         </div>
