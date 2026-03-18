@@ -6,38 +6,25 @@
 
 <title>뉴베리 수상작으로 만나는 영어 원서 읽기</title>
 
-<style>
-/* Gmarket Sans */
-@font-face {
-  font-family: 'GmarketSans';
-  font-weight: 300;
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
-}
-@font-face {
-  font-family: 'GmarketSans';
-  font-weight: 500;
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-}
-@font-face {
-  font-family: 'GmarketSans';
-  font-weight: 700;
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-}
+<!-- Elegant serif + readable sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 
+<style>
 :root{
-  --bg:#07090d;
-  --panel:#10141b;
-  --panel-2:#0c1016;
-  --line:rgba(255,255,255,.08);
-  --text:#f5f7fb;
-  --muted:#98a1ad;
-  --gold:#e9c46a;
-  --gold-soft:rgba(233,196,106,.16);
-  --blue:#7ec8ff;
-  --beginner:#7dd3fc;
-  --intermediate:#86efac;
-  --advanced:#fca5a5;
-  --shadow:0 16px 40px rgba(0,0,0,.35);
+  --bg:#f4eee3;
+  --bg-deep:#e7dcc8;
+  --panel:#fbf7ef;
+  --panel-2:#f6efe2;
+  --stroke:#d4c1a2;
+  --stroke-soft:#e4d6bf;
+  --text:#33281e;
+  --muted:#7b6a58;
+  --gold:#b99247;
+  --gold-deep:#8c6a2f;
+  --wine:#6e4f3d;
+  --shadow:0 14px 34px rgba(84, 59, 25, 0.10);
 }
 
 *{
@@ -46,12 +33,13 @@
 
 html, body{
   margin:0;
+  padding:0;
   background:
-    radial-gradient(circle at 0% 0%, rgba(233,196,106,.09), transparent 28%),
-    radial-gradient(circle at 100% 10%, rgba(126,200,255,.08), transparent 26%),
-    linear-gradient(180deg, #06080c 0%, #0a0d13 100%);
+    radial-gradient(circle at top right, rgba(185,146,71,.10), transparent 24%),
+    radial-gradient(circle at left top, rgba(140,106,47,.08), transparent 20%),
+    linear-gradient(180deg, #f8f3ea 0%, #f0e7d8 100%);
   color:var(--text);
-  font-family:'GmarketSans', sans-serif;
+  font-family:'Noto Sans KR', sans-serif;
 }
 
 body{
@@ -61,7 +49,7 @@ body{
 .wrap{
   max-width:720px;
   margin:auto;
-  padding:24px 16px 72px;
+  padding:22px 16px 64px;
 }
 
 /* HERO */
@@ -69,36 +57,22 @@ body{
   position:relative;
   overflow:hidden;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)),
-    linear-gradient(135deg, #121821 0%, #0b1017 45%, #0b0d12 100%);
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:28px;
-  padding:26px 18px 34px;
+    linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.38)),
+    linear-gradient(135deg, #fbf7ef 0%, #f6efe1 55%, #efe3cf 100%);
+  border:1px solid var(--stroke-soft);
+  border-radius:30px;
+  padding:22px 18px 26px;
   box-shadow:var(--shadow);
 }
 
 .hero::before{
   content:"";
   position:absolute;
-  top:-80px;
-  right:-60px;
-  width:240px;
-  height:240px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(233,196,106,.22) 0%, rgba(233,196,106,.05) 42%, transparent 68%);
+  inset:0;
   pointer-events:none;
-}
-
-.hero::after{
-  content:"NEWBERY";
-  position:absolute;
-  right:18px;
-  bottom:14px;
-  font-size:12px;
-  letter-spacing:.28em;
-  color:rgba(233,196,106,.28);
-  font-weight:700;
-  pointer-events:none;
+  background:
+    linear-gradient(135deg, rgba(185,146,71,.06), transparent 30%),
+    radial-gradient(circle at 100% 0%, rgba(185,146,71,.12), transparent 25%);
 }
 
 .hero-top{
@@ -106,118 +80,86 @@ body{
   align-items:flex-start;
   justify-content:space-between;
   gap:12px;
-  margin-bottom:34px;
+  margin-bottom:20px;
 }
 
 .hero-tag{
   display:inline-flex;
   align-items:center;
-  gap:10px;
+  gap:8px;
   padding:8px 14px;
   border-radius:999px;
-  background:linear-gradient(180deg, rgba(233,196,106,.22), rgba(233,196,106,.11));
-  border:1px solid rgba(233,196,106,.18);
-  color:#f7df9a;
+  background:rgba(185,146,71,.08);
+  border:1px solid rgba(185,146,71,.22);
+  color:var(--gold-deep);
   font-size:12px;
   font-weight:700;
-  letter-spacing:-0.02em;
   line-height:1;
-  backdrop-filter:blur(6px);
+  letter-spacing:.02em;
 }
 
 .hero-tag-bar{
-  display:inline-block;
   width:1px;
-  height:13px;
-  background:rgba(247,223,154,.45);
+  height:12px;
+  background:rgba(140,106,47,.35);
   flex:0 0 auto;
 }
 
 .hero-medal{
   flex:0 0 auto;
-  width:58px;
-  height:58px;
+  width:84px;
+  height:84px;
+  object-fit:cover;
   border-radius:50%;
-  border:1px solid rgba(233,196,106,.32);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), transparent 34%),
-    radial-gradient(circle at 50% 50%, rgba(233,196,106,.18), rgba(233,196,106,.05));
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
-  position:relative;
-}
-
-.hero-medal::before{
-  content:"N";
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  color:#f7df9a;
-  font-size:23px;
-  letter-spacing:-0.04em;
+  border:1px solid rgba(185,146,71,.28);
+  box-shadow:0 8px 18px rgba(140,106,47,.14);
+  background:#efe5d1;
 }
 
 .hero-head{
-  margin-bottom:30px;
+  position:relative;
+  z-index:1;
 }
 
-.hero-row-top{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.hero-line{
+.hero-title{
   margin:0;
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(34px, 8vw, 50px);
+  line-height:1.04;
+  letter-spacing:-0.03em;
   font-weight:700;
-  line-height:.92;
-  letter-spacing:-0.07em;
-  color:#f7f8fb;
-  font-size:clamp(36px, 11.5vw, 84px);
-  word-break:keep-all;
-}
-
-.hero-line1{
-  max-width:5.8em;
-}
-
-.hero-line2-wrap{
-  display:flex;
-  justify-content:flex-end;
-  margin-top:14px;
-}
-
-.hero-line2{
-  text-align:right;
-  color:#f0d58a;
+  color:#3a2d21;
 }
 
 .hero-sub{
-  flex:0 0 auto;
-  margin-top:12px;
-  font-size:clamp(13px, 3.5vw, 22px);
-  line-height:1.22;
-  color:#d7dce5;
-  letter-spacing:-0.04em;
-  text-align:right;
-  max-width:9.2em;
+  margin-top:10px;
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(22px, 4.8vw, 30px);
+  line-height:1.25;
+  letter-spacing:-0.01em;
+  color:var(--wine);
+  font-weight:600;
+}
+
+.hero-divider{
+  width:72px;
+  height:2px;
+  background:linear-gradient(90deg, var(--gold), rgba(185,146,71,0));
+  margin:18px 0 18px;
 }
 
 .description{
   max-width:35ch;
-  font-size:15.8px;
-  line-height:1.9;
+  font-size:15.5px;
+  line-height:1.92;
   color:var(--muted);
-  letter-spacing:-0.012em;
+  letter-spacing:-0.01em;
   word-break:keep-all;
   text-wrap:pretty;
 }
 
 .description p{
-  margin:0 0 16px 0;
+  margin:0 0 14px;
 }
 
 .description p:last-child{
@@ -225,125 +167,79 @@ body{
 }
 
 .description .key{
-  color:#f3f5f9;
+  color:#4a392a;
   font-weight:700;
 }
 
 .notice{
-  margin:18px 4px 0;
+  margin:16px 2px 0;
   padding:12px 14px;
-  border-radius:14px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.06);
-  color:#d6dbe4;
-  font-size:13px;
-  line-height:1.6;
-  text-align:center;
-}
-
-/* Intro band */
-.intro-band{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:10px;
-}
-
-.intro-chip{
-  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-  border:1px solid rgba(255,255,255,.06);
   border-radius:16px;
-  padding:14px 10px;
+  background:rgba(255,255,255,.46);
+  border:1px solid var(--stroke-soft);
+  color:#7a6854;
+  font-size:12.8px;
   text-align:center;
-  box-shadow:var(--shadow);
-}
-
-.intro-chip .k{
-  display:block;
-  font-size:12px;
-  color:#9ea7b3;
-  margin-bottom:6px;
-}
-
-.intro-chip .v{
-  display:block;
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:-0.03em;
+  line-height:1.65;
+  box-shadow:0 6px 18px rgba(110,79,61,.05);
 }
 
 /* SECTION */
 .section{
-  margin-top:58px;
+  margin-top:52px;
 }
 
 .section-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.section-title-wrap{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
+  margin-bottom:16px;
 }
 
 .section-badge{
   display:inline-flex;
   align-items:center;
-  gap:8px;
-  width:fit-content;
   padding:7px 12px;
   border-radius:999px;
-  font-size:12px;
+  font-size:11.5px;
   font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
   line-height:1;
-  letter-spacing:-0.02em;
   border:1px solid transparent;
+  margin-bottom:10px;
 }
 
 .section-badge.beginner{
-  background:rgba(125,211,252,.12);
-  color:#c7efff;
-  border-color:rgba(125,211,252,.2);
+  background:rgba(193, 169, 118, .10);
+  color:#8c6a2f;
+  border-color:rgba(185,146,71,.24);
 }
 
 .section-badge.intermediate{
-  background:rgba(134,239,172,.12);
-  color:#d7ffe2;
-  border-color:rgba(134,239,172,.2);
+  background:rgba(140,106,47,.10);
+  color:#6d5225;
+  border-color:rgba(140,106,47,.18);
 }
 
 .section-badge.advanced{
-  background:rgba(252,165,165,.12);
-  color:#ffdede;
-  border-color:rgba(252,165,165,.2);
+  background:rgba(110,79,61,.11);
+  color:#5e4332;
+  border-color:rgba(110,79,61,.18);
 }
 
 .section-title{
   margin:0;
-  font-size:24px;
+  font-family:'Cormorant Garamond', serif;
+  font-size:29px;
+  line-height:1.15;
+  letter-spacing:-0.02em;
+  color:#3b2d21;
   font-weight:700;
-  line-height:1.22;
-  letter-spacing:-0.04em;
-}
-
-.section-sub{
-  font-size:14px;
-  color:#8f98a4;
-  line-height:1.6;
-  text-align:right;
-  max-width:14ch;
 }
 
 .section-rule{
-  height:1px;
+  margin-top:14px;
   width:100%;
-  background:linear-gradient(90deg, rgba(255,255,255,.14), transparent);
-  margin-bottom:16px;
+  height:1px;
+  background:linear-gradient(90deg, rgba(185,146,71,.42), rgba(185,146,71,0));
 }
 
 /* GRID */
@@ -351,6 +247,7 @@ body{
   display:flex;
   flex-direction:column;
   gap:14px;
+  margin-top:18px;
 }
 
 /* CARD */
@@ -359,40 +256,19 @@ body{
   gap:14px;
   align-items:center;
   padding:12px;
-  border-radius:20px;
+  border-radius:22px;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.012));
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
+    linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,.48));
+  border:1px solid var(--stroke-soft);
+  box-shadow:0 10px 24px rgba(110,79,61,.06);
   cursor:pointer;
-  transition:transform .18s ease, border-color .18s ease, background .18s ease;
-  position:relative;
-  overflow:hidden;
-}
-
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg, transparent, rgba(255,255,255,.02), transparent);
-  pointer-events:none;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
 .card:hover{
   transform:translateY(-2px);
-  border-color:rgba(233,196,106,.18);
-}
-
-.card.beginner:hover{
-  border-color:rgba(125,211,252,.28);
-}
-
-.card.intermediate:hover{
-  border-color:rgba(134,239,172,.28);
-}
-
-.card.advanced:hover{
-  border-color:rgba(252,165,165,.26);
+  box-shadow:0 14px 28px rgba(110,79,61,.10);
+  border-color:#ceb38a;
 }
 
 .cover-wrap{
@@ -404,28 +280,27 @@ body{
   width:76px;
   height:108px;
   object-fit:cover;
-  border-radius:10px;
-  background:
-    linear-gradient(180deg, #18202b, #0d1117);
-  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
   display:block;
+  background:#eadfca;
+  border:1px solid rgba(140,106,47,.14);
 }
 
 .cover-placeholder{
   width:76px;
   height:108px;
-  border-radius:10px;
-  border:1px dashed rgba(255,255,255,.14);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  border-radius:12px;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:#768091;
-  font-size:11px;
-  line-height:1.5;
   padding:8px;
+  background:
+    linear-gradient(180deg, #efe4d0, #e6d6bb);
+  border:1px dashed rgba(140,106,47,.22);
+  color:#93795a;
+  font-size:11px;
+  line-height:1.55;
 }
 
 .level-dot{
@@ -435,13 +310,13 @@ body{
   width:14px;
   height:14px;
   border-radius:50%;
-  border:2px solid #0d1117;
-  box-shadow:0 2px 8px rgba(0,0,0,.35);
+  border:2px solid #f8f2e8;
+  box-shadow:0 2px 8px rgba(110,79,61,.14);
 }
 
-.level-dot.beginner{ background:var(--beginner); }
-.level-dot.intermediate{ background:var(--intermediate); }
-.level-dot.advanced{ background:var(--advanced); }
+.level-dot.beginner{ background:#c3a35d; }
+.level-dot.intermediate{ background:#a88246; }
+.level-dot.advanced{ background:#7d5b3b; }
 
 .info{
   min-width:0;
@@ -452,146 +327,90 @@ body{
 
 .eyebrow{
   font-size:11px;
-  color:#8e97a3;
-  letter-spacing:.08em;
+  color:#9a8568;
+  letter-spacing:.12em;
   text-transform:uppercase;
 }
 
 .title{
-  font-size:18px;
+  font-family:'Cormorant Garamond', serif;
+  font-size:24px;
   font-weight:700;
-  line-height:1.35;
-  letter-spacing:-0.03em;
-  color:#f4f7fb;
+  line-height:1.2;
+  letter-spacing:-0.015em;
+  color:#392c20;
   word-break:keep-all;
 }
 
 .meta{
   font-size:14px;
-  color:#aeb5c0;
-  line-height:1.6;
+  color:#7e6d5a;
+  line-height:1.55;
 }
 
 .call{
   margin-top:2px;
   font-size:13px;
-  color:#e6cb82;
+  color:#8a6934;
   letter-spacing:.01em;
 }
 
-.section-note{
-  margin-top:12px;
-  font-size:12px;
-  color:#7f8895;
-  line-height:1.6;
-  padding-left:2px;
-}
-
-/* Footer */
-.footer{
-  margin-top:54px;
-  padding:18px 16px;
-  border-radius:18px;
-  background:rgba(255,255,255,.025);
-  border:1px solid rgba(255,255,255,.06);
-  color:#9da6b1;
-  font-size:13px;
-  line-height:1.75;
-}
-
-/* Mobile */
+/* MOBILE */
 @media (max-width:560px){
   .wrap{
-    padding:18px 12px 60px;
+    padding:18px 12px 52px;
   }
 
   .hero{
-    padding:20px 14px 28px;
-    border-radius:24px;
+    padding:18px 14px 22px;
+    border-radius:26px;
   }
 
   .hero-top{
-    margin-bottom:28px;
+    margin-bottom:18px;
   }
 
   .hero-tag{
     font-size:11px;
     padding:7px 12px;
-    gap:8px;
   }
 
   .hero-medal{
-    width:52px;
-    height:52px;
+    width:74px;
+    height:74px;
   }
 
-  .hero-medal::before{
-    font-size:20px;
-  }
-
-  .hero-line{
-    font-size:clamp(34px, 12.6vw, 68px);
+  .hero-title{
+    font-size:clamp(28px, 8vw, 42px);
   }
 
   .hero-sub{
-    font-size:clamp(12px, 3.8vw, 17px);
+    font-size:clamp(20px, 5vw, 25px);
     margin-top:8px;
-    max-width:8.8em;
   }
 
-  .hero-line2-wrap{
-    margin-top:12px;
+  .hero-divider{
+    margin:16px 0 16px;
   }
 
   .description{
-    font-size:15px;
-    line-height:1.84;
+    font-size:14.5px;
+    line-height:1.86;
     max-width:34ch;
   }
 
-  .notice{
-    font-size:12.5px;
-  }
-
-  .intro-band{
-    gap:8px;
-  }
-
-  .intro-chip{
-    border-radius:14px;
-    padding:12px 8px;
-  }
-
-  .intro-chip .k{
-    font-size:11px;
-  }
-
-  .intro-chip .v{
-    font-size:13px;
-  }
-
   .section{
-    margin-top:50px;
-  }
-
-  .section-head{
-    align-items:flex-start;
+    margin-top:46px;
   }
 
   .section-title{
-    font-size:21px;
-  }
-
-  .section-sub{
-    font-size:12px;
-    max-width:11ch;
-    margin-top:24px;
+    font-size:25px;
   }
 
   .card{
-    border-radius:18px;
     padding:11px;
-    gap:12px;
+    border-radius:20px;
+    align-items:flex-start;
   }
 
   .cover,
@@ -601,7 +420,7 @@ body{
   }
 
   .title{
-    font-size:16.5px;
+    font-size:21px;
   }
 
   .meta{
@@ -614,36 +433,30 @@ body{
 }
 
 @media (max-width:420px){
-  .hero{
-    padding:18px 12px 24px;
+  .hero-medal{
+    width:68px;
+    height:68px;
   }
 
-  .hero-line{
-    font-size:clamp(32px, 12.8vw, 58px);
-    letter-spacing:-0.075em;
+  .hero-title{
+    font-size:clamp(26px, 8.2vw, 36px);
   }
 
   .hero-sub{
-    font-size:12px;
-    line-height:1.28;
-    max-width:8.2em;
+    font-size:clamp(18px, 5vw, 22px);
   }
 
   .description{
-    font-size:14.5px;
+    font-size:14px;
     line-height:1.82;
   }
 
   .section-title{
-    font-size:19px;
-  }
-
-  .card{
-    align-items:flex-start;
+    font-size:23px;
   }
 
   .title{
-    font-size:15.5px;
+    font-size:19px;
   }
 }
 </style>
@@ -666,76 +479,55 @@ function goLibrary(title){
   <section class="hero">
     <div class="hero-top">
       <div class="hero-tag">
-        <span>우면도서관 북큐레이션</span>
+        <span>UMYEON LIBRARY</span>
         <span class="hero-tag-bar" aria-hidden="true"></span>
-        <span>영어 원서</span>
+        <span>ENGLISH BOOKS</span>
       </div>
-      <div class="hero-medal" aria-hidden="true"></div>
+
+      <!-- 업로드한 메달 사진 사용 -->
+      <img class="hero-medal" src="newbery-medal.jpg" alt="Newbery Medal">
     </div>
 
     <div class="hero-head">
-      <div class="hero-row-top">
-        <h1 class="hero-line hero-line1">뉴베리 수상작으로</h1>
-        <div class="hero-sub">수준에 맞게,<br>깊이 있게 읽는 첫 경험</div>
-      </div>
+      <h1 class="hero-title">뉴베리 수상작으로 만나는 영어 원서 읽기</h1>
+      <div class="hero-sub">수준에 맞게, 깊이 있게 읽는 첫 경험</div>
+      <div class="hero-divider" aria-hidden="true"></div>
 
-      <div class="hero-line2-wrap">
-        <h1 class="hero-line hero-line2">만나는 영어 원서 읽기</h1>
+      <div class="description">
+        <p>
+          <span class="key">뉴베리상</span>은 미국 아동·청소년 문학에서 가장 권위 있는 상으로,
+          작품성과 완성도를 인정받은 우수한 작품에 수여됩니다.
+        </p>
+        <p>
+          이번 큐레이션은 수상작을 <span class="key">난이도별로 구성</span>해,
+          자신의 수준에 맞는 영어 원서를 선택하고 단계적으로 읽기에 도전할 수 있도록 마련했습니다.
+        </p>
+        <p>
+          익숙한 이야기부터 조금 더 깊이 있는 작품까지,
+          각자의 속도로 영어 원서 읽기의 경험을 넓혀보시기 바랍니다.
+        </p>
       </div>
-    </div>
-
-    <div class="description">
-      <p>
-        <span class="key">뉴베리상</span>은 미국 아동·청소년 문학에서 가장 권위 있는 상으로,
-        작품성과 완성도를 인정받은 우수한 작품에 수여됩니다.
-      </p>
-      <p>
-        이번 큐레이션은 수상작을 <span class="key">난이도별로 구성</span>해,
-        자신의 수준에 맞는 영어 원서를 고르고 자연스럽게 다음 단계로 나아갈 수 있도록 마련했습니다.
-      </p>
-      <p>
-        익숙하게 시작할 책부터 조금 더 깊이 읽을 작품까지,
-        각자의 속도로 <span class="key">영어 원서 읽기의 경험을 넓혀보시기 바랍니다.</span>
-      </p>
     </div>
   </section>
 
   <div class="notice">
-    📌 표지를 클릭하면 책 제목이 복사되고 도서관 검색 페이지로 이동합니다.
+    표지를 클릭하면 책 제목이 복사되고 도서관 검색 페이지로 이동합니다.
   </div>
-
-  <section class="intro-band" aria-label="큐레이션 정보">
-    <div class="intro-chip">
-      <span class="k">구성</span>
-      <span class="v">하 · 중 · 상</span>
-    </div>
-    <div class="intro-chip">
-      <span class="k">기준</span>
-      <span class="v">읽기 난이도</span>
-    </div>
-    <div class="intro-chip">
-      <span class="k">추천</span>
-      <span class="v">단계적 도전</span>
-    </div>
-  </section>
 
   <!-- Beginner -->
   <section class="section">
     <div class="section-head">
-      <div class="section-title-wrap">
-        <div class="section-badge beginner">하 · Beginner</div>
-        <h2 class="section-title">가볍게 시작하는 첫 원서 읽기</h2>
-      </div>
-      <div class="section-sub">짧고 친숙하게,<br>읽기의 감각부터</div>
+      <div class="section-badge beginner">Beginner</div>
+      <h2 class="section-title">가볍게 시작하는 첫 원서 읽기</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="section-rule"></div>
 
     <div class="grid">
-      <div class="card beginner" onclick="goLibrary('Last Stop on Market Street')">
+      <div class="card" onclick="goLibrary('Last Stop on Market Street')">
         <div class="cover-wrap">
-          <!-- 이미지 링크 직접 넣기 -->
-          <!-- 사용 예시: <img class="cover" src="여기에_이미지링크" alt="Last Stop on Market Street 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- 아래 placeholder를 지우고 img 태그로 교체해서 표지 링크 넣으면 됨 -->
+          <!-- <img class="cover" src="여기에이미지링크" alt="Last Stop on Market Street 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot beginner" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -746,11 +538,10 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card beginner" onclick="goLibrary('The Eyes and the Impossible')">
+      <div class="card" onclick="goLibrary('The Eyes and the Impossible')">
         <div class="cover-wrap">
-          <!-- 이미지 링크 직접 넣기 -->
-          <!-- 사용 예시: <img class="cover" src="여기에_이미지링크" alt="The Eyes and the Impossible 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="The Eyes and the Impossible 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot beginner" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -761,28 +552,21 @@ function goLibrary(title){
         </div>
       </div>
     </div>
-
-    <div class="section-note">
-      쉬운 진입이 중요한 이용자에게 적합합니다.
-    </div>
   </section>
 
   <!-- Intermediate -->
   <section class="section">
     <div class="section-head">
-      <div class="section-title-wrap">
-        <div class="section-badge intermediate">중 · Intermediate</div>
-        <h2 class="section-title">익숙함을 넘어서, 이야기의 깊이로</h2>
-      </div>
-      <div class="section-sub">서사와 감정선을<br>조금 더 풍부하게</div>
+      <div class="section-badge intermediate">Intermediate</div>
+      <h2 class="section-title">익숙함을 넘어서, 이야기의 깊이로</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="section-rule"></div>
 
     <div class="grid">
-      <div class="card intermediate" onclick="goLibrary('The Eyes and the Impossible')">
+      <div class="card" onclick="goLibrary('The Eyes and the Impossible')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="The Eyes and the Impossible 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="The Eyes and the Impossible 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -793,10 +577,10 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card intermediate" onclick="goLibrary('When You Trap a Tiger')">
+      <div class="card" onclick="goLibrary('When You Trap a Tiger')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="When You Trap a Tiger 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="When You Trap a Tiger 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -807,10 +591,10 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card intermediate" onclick="goLibrary('Merci Suarez Changes Gears')">
+      <div class="card" onclick="goLibrary('Merci Suarez Changes Gears')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="Merci Suarez Changes Gears 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="Merci Suarez Changes Gears 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -821,10 +605,10 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card intermediate" onclick="goLibrary('Hello, Universe')">
+      <div class="card" onclick="goLibrary('Hello, Universe')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="Hello, Universe 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="Hello, Universe 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -835,10 +619,10 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card intermediate" onclick="goLibrary('The Girl Who Drank the Moon')">
+      <div class="card" onclick="goLibrary('The Girl Who Drank the Moon')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="The Girl Who Drank the Moon 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="The Girl Who Drank the Moon 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -849,10 +633,10 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card intermediate" onclick="goLibrary('The Crossover')">
+      <div class="card" onclick="goLibrary('The Crossover')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="The Crossover 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="The Crossover 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -863,10 +647,10 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card intermediate" onclick="goLibrary('Flora & Ulysses')">
+      <div class="card" onclick="goLibrary('Flora & Ulysses')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="Flora & Ulysses 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="Flora & Ulysses 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -877,28 +661,21 @@ function goLibrary(title){
         </div>
       </div>
     </div>
-
-    <div class="section-note">
-      문장과 분량에 어느 정도 익숙한 이용자에게 추천합니다.
-    </div>
   </section>
 
   <!-- Advanced -->
   <section class="section">
     <div class="section-head">
-      <div class="section-title-wrap">
-        <div class="section-badge advanced">상 · Advanced</div>
-        <h2 class="section-title">조금 더 깊고 밀도 있게 읽기</h2>
-      </div>
-      <div class="section-sub">주제 의식과<br>문학적 완성도까지</div>
+      <div class="section-badge advanced">Advanced</div>
+      <h2 class="section-title">조금 더 깊고 밀도 있게 읽기</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="section-rule"></div>
 
     <div class="grid">
-      <div class="card advanced" onclick="goLibrary('Freewater')">
+      <div class="card" onclick="goLibrary('Freewater')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="Freewater 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="Freewater 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot advanced" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -909,10 +686,10 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card advanced" onclick="goLibrary('The Last Cuentista')">
+      <div class="card" onclick="goLibrary('The Last Cuentista')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="The Last Cuentista 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="The Last Cuentista 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot advanced" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -923,10 +700,10 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card advanced" onclick="goLibrary('The First State of Being')">
+      <div class="card" onclick="goLibrary('The First State of Being')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에_이미지링크" alt="The First State of Being 표지"> -->
-          <div class="cover-placeholder">이미지 링크<br>직접 삽입</div>
+          <!-- <img class="cover" src="여기에이미지링크" alt="The First State of Being 표지"> -->
+          <div class="cover-placeholder">cover image</div>
           <span class="level-dot advanced" aria-hidden="true"></span>
         </div>
         <div class="info">
@@ -937,17 +714,7 @@ function goLibrary(title){
         </div>
       </div>
     </div>
-
-    <div class="section-note">
-      보다 긴 호흡의 읽기와 사고 확장을 원하는 이용자에게 적합합니다.
-    </div>
   </section>
-
-  <footer class="footer">
-    뉴베리 수상작은 재미와 문학성을 함께 갖춘 작품들로,
-    영어 원서를 처음 시작하는 청소년에게도 좋은 출발점이 됩니다.
-    자신의 난이도에서 시작해 한 단계씩 넓혀 읽어보세요.
-  </footer>
 
 </main>
 </body>
