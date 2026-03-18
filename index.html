@@ -6,10 +6,9 @@
 
 <title>뉴베리 수상작으로 만나는 영어 원서 읽기</title>
 
-<!-- Elegant serif + readable sans -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -25,6 +24,24 @@
   --gold-deep:#8c6a2f;
   --wine:#6e4f3d;
   --shadow:0 14px 34px rgba(84, 59, 25, 0.10);
+
+  --beginner-bg:#f6efe1;
+  --beginner-border:#dcc28b;
+  --beginner-dot:#caa24d;
+  --beginner-badge-bg:#f1e2be;
+  --beginner-badge-text:#7f5b1d;
+
+  --intermediate-bg:#efe7dd;
+  --intermediate-border:#cda97d;
+  --intermediate-dot:#a8753a;
+  --intermediate-badge-bg:#e6d2bf;
+  --intermediate-badge-text:#6c4522;
+
+  --advanced-bg:#e8ddd8;
+  --advanced-border:#a88478;
+  --advanced-dot:#7a564d;
+  --advanced-badge-bg:#d9c3bc;
+  --advanced-badge-text:#5a392f;
 }
 
 *{
@@ -86,8 +103,7 @@ body{
 .hero-tag{
   display:inline-flex;
   align-items:center;
-  gap:8px;
-  padding:8px 14px;
+  padding:9px 15px;
   border-radius:999px;
   background:rgba(185,146,71,.08);
   border:1px solid rgba(185,146,71,.22);
@@ -95,14 +111,7 @@ body{
   font-size:12px;
   font-weight:700;
   line-height:1;
-  letter-spacing:.02em;
-}
-
-.hero-tag-bar{
-  width:1px;
-  height:12px;
-  background:rgba(140,106,47,.35);
-  flex:0 0 auto;
+  letter-spacing:-0.01em;
 }
 
 .hero-medal{
@@ -123,22 +132,24 @@ body{
 
 .hero-title{
   margin:0;
-  font-family:'Cormorant Garamond', serif;
-  font-size:clamp(34px, 8vw, 50px);
-  line-height:1.04;
+  font-family:'Noto Serif KR', serif;
+  font-size:clamp(28px, 6.8vw, 40px);
+  line-height:1.34;
   letter-spacing:-0.03em;
   font-weight:700;
   color:#3a2d21;
+  word-break:keep-all;
 }
 
 .hero-sub{
-  margin-top:10px;
-  font-family:'Cormorant Garamond', serif;
-  font-size:clamp(22px, 4.8vw, 30px);
-  line-height:1.25;
-  letter-spacing:-0.01em;
+  margin-top:12px;
+  font-family:'Noto Serif KR', serif;
+  font-size:clamp(18px, 4.4vw, 24px);
+  line-height:1.55;
+  letter-spacing:-0.02em;
   color:var(--wine);
   font-weight:600;
+  word-break:keep-all;
 }
 
 .hero-divider{
@@ -200,7 +211,7 @@ body{
   border-radius:999px;
   font-size:11.5px;
   font-weight:700;
-  letter-spacing:.08em;
+  letter-spacing:.06em;
   text-transform:uppercase;
   line-height:1;
   border:1px solid transparent;
@@ -208,31 +219,32 @@ body{
 }
 
 .section-badge.beginner{
-  background:rgba(193, 169, 118, .10);
-  color:#8c6a2f;
-  border-color:rgba(185,146,71,.24);
+  background:var(--beginner-badge-bg);
+  color:var(--beginner-badge-text);
+  border-color:rgba(202,162,77,.30);
 }
 
 .section-badge.intermediate{
-  background:rgba(140,106,47,.10);
-  color:#6d5225;
-  border-color:rgba(140,106,47,.18);
+  background:var(--intermediate-badge-bg);
+  color:var(--intermediate-badge-text);
+  border-color:rgba(168,117,58,.26);
 }
 
 .section-badge.advanced{
-  background:rgba(110,79,61,.11);
-  color:#5e4332;
-  border-color:rgba(110,79,61,.18);
+  background:var(--advanced-badge-bg);
+  color:var(--advanced-badge-text);
+  border-color:rgba(122,86,77,.26);
 }
 
 .section-title{
   margin:0;
-  font-family:'Cormorant Garamond', serif;
-  font-size:29px;
-  line-height:1.15;
-  letter-spacing:-0.02em;
+  font-family:'Noto Serif KR', serif;
+  font-size:28px;
+  line-height:1.4;
+  letter-spacing:-0.03em;
   color:#3b2d21;
   font-weight:700;
+  word-break:keep-all;
 }
 
 .section-rule{
@@ -262,13 +274,48 @@ body{
   border:1px solid var(--stroke-soft);
   box-shadow:0 10px 24px rgba(110,79,61,.06);
   cursor:pointer;
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
 
 .card:hover{
   transform:translateY(-2px);
   box-shadow:0 14px 28px rgba(110,79,61,.10);
-  border-color:#ceb38a;
+}
+
+.card.beginner{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.54)),
+    var(--beginner-bg);
+  border-color:var(--beginner-border);
+}
+
+.card.beginner:hover{
+  border-color:#caa24d;
+  box-shadow:0 14px 28px rgba(202,162,77,.14);
+}
+
+.card.intermediate{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.64), rgba(255,255,255,.50)),
+    var(--intermediate-bg);
+  border-color:var(--intermediate-border);
+}
+
+.card.intermediate:hover{
+  border-color:#a8753a;
+  box-shadow:0 14px 28px rgba(168,117,58,.14);
+}
+
+.card.advanced{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.60), rgba(255,255,255,.48)),
+    var(--advanced-bg);
+  border-color:var(--advanced-border);
+}
+
+.card.advanced:hover{
+  border-color:#7a564d;
+  box-shadow:0 14px 28px rgba(122,86,77,.16);
 }
 
 .cover-wrap{
@@ -314,9 +361,9 @@ body{
   box-shadow:0 2px 8px rgba(110,79,61,.14);
 }
 
-.level-dot.beginner{ background:#c3a35d; }
-.level-dot.intermediate{ background:#a88246; }
-.level-dot.advanced{ background:#7d5b3b; }
+.level-dot.beginner{ background:var(--beginner-dot); }
+.level-dot.intermediate{ background:var(--intermediate-dot); }
+.level-dot.advanced{ background:var(--advanced-dot); }
 
 .info{
   min-width:0;
@@ -327,17 +374,21 @@ body{
 
 .eyebrow{
   font-size:11px;
-  color:#9a8568;
   letter-spacing:.12em;
   text-transform:uppercase;
+  font-weight:700;
 }
 
+.card.beginner .eyebrow{ color:#9b7729; }
+.card.intermediate .eyebrow{ color:#8a5a2f; }
+.card.advanced .eyebrow{ color:#6b4a42; }
+
 .title{
-  font-family:'Cormorant Garamond', serif;
-  font-size:24px;
+  font-family:'Noto Serif KR', serif;
+  font-size:23px;
   font-weight:700;
-  line-height:1.2;
-  letter-spacing:-0.015em;
+  line-height:1.32;
+  letter-spacing:-0.02em;
   color:#392c20;
   word-break:keep-all;
 }
@@ -381,12 +432,14 @@ body{
   }
 
   .hero-title{
-    font-size:clamp(28px, 8vw, 42px);
+    font-size:clamp(25px, 7vw, 34px);
+    line-height:1.38;
   }
 
   .hero-sub{
-    font-size:clamp(20px, 5vw, 25px);
-    margin-top:8px;
+    font-size:clamp(17px, 4.6vw, 21px);
+    margin-top:10px;
+    line-height:1.58;
   }
 
   .hero-divider{
@@ -404,7 +457,8 @@ body{
   }
 
   .section-title{
-    font-size:25px;
+    font-size:24px;
+    line-height:1.45;
   }
 
   .card{
@@ -420,7 +474,8 @@ body{
   }
 
   .title{
-    font-size:21px;
+    font-size:20px;
+    line-height:1.34;
   }
 
   .meta{
@@ -439,11 +494,11 @@ body{
   }
 
   .hero-title{
-    font-size:clamp(26px, 8.2vw, 36px);
+    font-size:clamp(23px, 7.2vw, 30px);
   }
 
   .hero-sub{
-    font-size:clamp(18px, 5vw, 22px);
+    font-size:clamp(16px, 4.8vw, 19px);
   }
 
   .description{
@@ -452,11 +507,11 @@ body{
   }
 
   .section-title{
-    font-size:23px;
+    font-size:22px;
   }
 
   .title{
-    font-size:19px;
+    font-size:18px;
   }
 }
 </style>
@@ -475,16 +530,9 @@ function goLibrary(title){
 <body>
 <main class="wrap">
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-top">
-      <div class="hero-tag">
-        <span>UMYEON LIBRARY</span>
-        <span class="hero-tag-bar" aria-hidden="true"></span>
-        <span>ENGLISH BOOKS</span>
-      </div>
-
-      <!-- 업로드한 메달 사진 사용 -->
+      <div class="hero-tag">우면도서관 (바) 청소년실</div>
       <img class="hero-medal" src="newbery-medal.jpg" alt="Newbery Medal">
     </div>
 
@@ -523,10 +571,9 @@ function goLibrary(title){
     </div>
 
     <div class="grid">
-      <div class="card" onclick="goLibrary('Last Stop on Market Street')">
+      <div class="card beginner" onclick="goLibrary('Last Stop on Market Street')">
         <div class="cover-wrap">
-          <!-- 아래 placeholder를 지우고 img 태그로 교체해서 표지 링크 넣으면 됨 -->
-          <!-- <img class="cover" src="여기에이미지링크" alt="Last Stop on Market Street 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780141374185.jpg" alt="Last Stop on Market Street 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot beginner" aria-hidden="true"></span>
         </div>
@@ -538,9 +585,9 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card" onclick="goLibrary('The Eyes and the Impossible')">
+      <div class="card beginner" onclick="goLibrary('The Eyes and the Impossible')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="The Eyes and the Impossible 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781839136030.jpg" alt="The Eyes and the Impossible 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot beginner" aria-hidden="true"></span>
         </div>
@@ -562,24 +609,9 @@ function goLibrary(title){
       <div class="section-rule"></div>
     </div>
 
-    <div class="grid">
-      <div class="card" onclick="goLibrary('The Eyes and the Impossible')">
+      <div class="card intermediate" onclick="goLibrary('When You Trap a Tiger')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="The Eyes and the Impossible 표지"> -->
-          <div class="cover-placeholder">cover image</div>
-          <span class="level-dot intermediate" aria-hidden="true"></span>
-        </div>
-        <div class="info">
-          <div class="eyebrow">Intermediate</div>
-          <div class="title">The Eyes and the Impossible (2024)</div>
-          <div class="meta">Dave Eggers</div>
-          <div class="call">F 843 E29e</div>
-        </div>
-      </div>
-
-      <div class="card" onclick="goLibrary('When You Trap a Tiger')">
-        <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="When You Trap a Tiger 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781524715731.jpg" alt="When You Trap a Tiger 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
@@ -591,9 +623,9 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card" onclick="goLibrary('Merci Suarez Changes Gears')">
+      <div class="card intermediate" onclick="goLibrary('Merci Suarez Changes Gears')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="Merci Suarez Changes Gears 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781536212587.jpg" alt="Merci Suarez Changes Gears 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
@@ -605,9 +637,9 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card" onclick="goLibrary('Hello, Universe')">
+      <div class="card intermediate" onclick="goLibrary('Hello, Universe')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="Hello, Universe 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780062414168.jpg" alt="Hello, Universe 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
@@ -619,9 +651,9 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card" onclick="goLibrary('The Girl Who Drank the Moon')">
+      <div class="card intermediate" onclick="goLibrary('The Girl Who Drank the Moon')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="The Girl Who Drank the Moon 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9781616207465.jpg" alt="The Girl Who Drank the Moon 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
@@ -633,9 +665,9 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card" onclick="goLibrary('The Crossover')">
+      <div class="card intermediate" onclick="goLibrary('The Crossover')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="The Crossover 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780544935204.jpg" alt="The Crossover 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
@@ -647,9 +679,9 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card" onclick="goLibrary('Flora & Ulysses')">
+      <div class="card intermediate" onclick="goLibrary('Flora & Ulysses')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="Flora & Ulysses 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780763687649.jpg" alt="Flora & Ulysses 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot intermediate" aria-hidden="true"></span>
         </div>
@@ -672,7 +704,7 @@ function goLibrary(title){
     </div>
 
     <div class="grid">
-      <div class="card" onclick="goLibrary('Freewater')">
+      <div class="card advanced" onclick="goLibrary('Freewater')">
         <div class="cover-wrap">
           <!-- <img class="cover" src="여기에이미지링크" alt="Freewater 표지"> -->
           <div class="cover-placeholder">cover image</div>
@@ -686,9 +718,9 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card" onclick="goLibrary('The Last Cuentista')">
+      <div class="card advanced" onclick="goLibrary('The Last Cuentista')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="The Last Cuentista 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780316056670.jpg" alt="The Last Cuentista 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot advanced" aria-hidden="true"></span>
         </div>
@@ -700,9 +732,9 @@ function goLibrary(title){
         </div>
       </div>
 
-      <div class="card" onclick="goLibrary('The First State of Being')">
+      <div class="card advanced" onclick="goLibrary('The First State of Being')">
         <div class="cover-wrap">
-          <!-- <img class="cover" src="여기에이미지링크" alt="The First State of Being 표지"> -->
+          <!-- <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9780063467910.jpg" alt="The First State of Being 표지"> -->
           <div class="cover-placeholder">cover image</div>
           <span class="level-dot advanced" aria-hidden="true"></span>
         </div>
